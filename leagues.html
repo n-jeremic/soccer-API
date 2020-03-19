@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Soccer API | Leagues</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body onload="getCountries();">
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><b>SOCCER API</b></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="index.html">Betting <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="active"><a href="#">Leagues</a></li>
+            <li><a href="teams.html">Teams</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <label for="country">SELECT COUNTRY:</label>
+          <select
+            name="country"
+            id="country"
+            class="form-control"
+            onchange="getLeagues(this.value);"
+          >
+            <option value="null">- - -</option>
+          </select>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-lg-12">
+          <label for="league">SELECT LEAGUE:</label>
+          <select
+            name="league"
+            id="league"
+            class="form-control"
+            onchange="getStandings(this.value)"
+          >
+          </select>
+        </div>
+      </div>
+      <br />
+      <div class="row" id="standings" hidden>
+        <div class="col-lg-12">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th class="text-center">#</th>
+                <th class="text-center">TEAM</th>
+                <th class="text-center">GAMES PLAYED</th>
+                <th class="success text-center">WINS</th>
+                <th class="warning text-center">DRAWS</th>
+                <th class="danger text-center">LOSSES</th>
+                <th class="text-center">GOALS SCORED</th>
+                <th class="text-center">GOALS CONCEDED</th>
+                <th class="info text-center">TOTAL POINTS</th>
+              </tr>
+            </thead>
+            <tbody id="league_tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+      integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="leagues.js"></script>
+  </body>
+</html>
